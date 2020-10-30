@@ -7,7 +7,6 @@ import { useEffect } from "react";
 
 function Header({ spotify }) {
   const [{ user }, dispatch] = useStateValue();
-  console.log((user?.images[0])?user.images[0].url:'b')
   return (
     <div className="header">
       <div className="header__left">

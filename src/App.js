@@ -57,11 +57,19 @@ function App() {
           playlists,
         });
       });
-      s.getMyDevices().then(({devices})=>{
-        console.log("Benim cihazlarım",devices[0].id)
+      s.getMyDevices().then(({ devices }) => {
+        var device_id="";
+        devices.forEach((d)=>{
+          if(d.is_active){
+            device_id = d.id;
+          }
+        });
+        if(!device_id){
+          device_id = devices[0].id;
+        }
         dispatch({
-          type:"SET_DEVICE",
-          device_id:devices[0]?.id
+          type: "SET_DEVICE",
+          device_id: device_id
         })
       })
     }
