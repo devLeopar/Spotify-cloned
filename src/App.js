@@ -57,6 +57,9 @@ function App() {
           playlists,
         });
       });
+      // s.Player({
+      //   name:"New Device"
+      // });
       s.getMyDevices().then(({ devices }) => {
         var device_id="";
         devices.forEach((d)=>{
@@ -65,7 +68,7 @@ function App() {
           }
         });
         if(!device_id){
-          device_id = devices[0].id;
+          device_id = devices[0]?.id;
         }
         dispatch({
           type: "SET_DEVICE",
